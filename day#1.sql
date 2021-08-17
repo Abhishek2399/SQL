@@ -79,9 +79,6 @@ select * from Customers;
 truncate table Customers;
 select * from Customers;
 
-
-
-
 --To get the structure of the table we have created 
 --Syntax : sp_help <table_name>
 sp_help Orders
