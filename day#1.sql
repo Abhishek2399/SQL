@@ -66,9 +66,18 @@ alter table one alter column num int;
 select * from one;
 
 
+-- drop: will remove the content and table as well
 -- we cannot drop a column if we have only one column in the table 
 -- we cannot drop a column if we have a realtionship present
+-- Syntax drop table <table_name>
 
+drop table one;
+
+-- Truncate: will remove the content of table 
+-- Syntax truncate table <table_name>
+select * from Customers;
+truncate table Customers;
+select * from Customers;
 
 
 
