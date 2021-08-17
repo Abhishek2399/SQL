@@ -42,6 +42,9 @@ alter table Customers add cust_addrs varchar(20);
 -- alter table <table_name> alter column <col_name>(modified field) modifying a pre existing field in the table 
 alter table Customers alter column cust_addrs varchar(100);
 
+-- alter table <table_name> drop column <col_name> Dropping a specified column 
+-- alter table <table_name> drop column <col1name>, <col2name>, <col3name>   Dropping a multiple specified columns
+alter table Customers drop column cust_addrs;
 
 
 -- select query is used to get data from any specific table
@@ -49,6 +52,9 @@ alter table Customers alter column cust_addrs varchar(100);
 -- Syntax select * from <Table_name> -> to get data from all the colms in the specified table 
 select * from Customers;
 select cust_name from Customers;
+
+-- we can only change the type of the column only if it is empty or only if the data is compatible
+
 
 
 
