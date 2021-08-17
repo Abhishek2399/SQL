@@ -70,7 +70,7 @@ select * from one;
 -- we cannot drop a column if we have only one column in the table 
 -- we cannot drop a column if we have a realtionship present
 -- Syntax drop table <table_name>
-
+-- ? will drop command drop constraint 
 drop table one;
 
 -- Truncate: will remove the content of table 
