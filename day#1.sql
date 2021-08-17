@@ -54,6 +54,21 @@ select * from Customers;
 select cust_name from Customers;
 
 -- we can only change the type of the column only if it is empty or only if the data is compatible
+-- eg :
+create table one(num int);
+
+insert into one(num) values(200), (300), (500);
+alter table one alter column num varchar(50);
+select * from one;
+
+insert into one(num) values('Abhishek');
+alter table one alter column num int;
+select * from one;
+
+
+-- we cannot drop a column if we have only one column in the table 
+-- we cannot drop a column if we have a realtionship present
+
 
 
 
