@@ -71,6 +71,7 @@ select * from one;
 -- we cannot drop a column if we have a realtionship present
 -- Syntax drop table <table_name>
 -- ? will drop command drop constraint -> it will remove 
+-- drop will not drop views or procedures associated with the table
 drop table one;
 
 -- Truncate: will remove the content of table 
@@ -79,9 +80,18 @@ select * from Customers;
 truncate table Customers;
 select * from Customers;
 
+
+create view v1 as 
+select * from Customers where cust_id > 200;
+
+select * from v1;
+
+-- drop command can be used with view where we can drop the view we want
+-- Syntax : drop <view_name>
+
+
+
 --To get the structure of the table we have created 
 --Syntax : sp_help <table_name>
 sp_help Orders
 sp_help Customers
-
-
