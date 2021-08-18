@@ -21,4 +21,26 @@ delete from Customers where cust_name is null;-- this will delete all the record
 
 alter table Customers alter column cust_name varchar(30) not null;
 
+-------- <Creating new Table for applying Constarints>------------
+-------- <Column Level>-----------
+--- Not Null Costraint
+create table ConstraintEg(
+	rollNo int not null,
+	studName varchar(20) not null,
+);
+
+--- Unique constraint 
+-- will not allow redundant entry for the table specified 
+create table UniqueName(
+	Name varchar(50) unique -- only unique values with one null value throught the column if not specified "not null"
+);
+
+insert into UniqueName(Name) values('Abhi'), ('Alka'), ('Rahul');
+select * from UniqueName;
+
+insert into UniqueName(Name) values('Abhi');
+select * from UniqueName;
+
+sp_help ConstraintEg
+
 
