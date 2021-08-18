@@ -58,14 +58,67 @@ select * from UniqueName;
 
 -- Primary Key constraint 
 -- {not null + unique} can be achieved with one single constraint -> primary key
+-- only one Primary key allowed throught the table 
 drop table UniqueName;
 create table UniqueName(
 	Name varchar(50) primary key-- only unique values with one null value throught the column if not specified "not null"
 );
+insert into UniqueName(Name) values('Abhi'), ('Alka'), ('Rahul');
+select * from UniqueName;
 
+insert into UniqueName(Name) values('Abhi'); -- will not allow as 'abhi' is already present in the DB
+select * from UniqueName;
 
+insert into UniqueName(Name) values(null); -- will not allow as null values not allowed 
+select * from UniqueName;
 
+-- we can use primary key in one column and unique + not null in another column 
+drop table UniqueName;
+create table UniqueName(
+	ID int primary key,
+	Name varchar(50) not null unique, -- allowed
+	-- pin int primary key -- not allowed
+);
+
+-- Default entry 
+-- if we might miss any entry we want some default value to be present 
+drop table UniqueName;
+create table UniqueName(
+	ID int primary key,
+	Name varchar(50) default 'NoName', -- if no name given value woud be default 
+);
+
+insert into UniqueName(ID, Name) values(3, 'Abhi'), (1, 'Alka'), (2, 'Rahul');
+select * from UniqueName;
+
+insert into UniqueName(ID) values(4); -- as name not given we will get def. value for id-4 entry i.e. 'NoName'
+select * from UniqueName;
+
+-- Check Constraint 
+-- Validity of data 
+drop table Orders;
+create table Orders(
+	id int primary key,
+	price int check(price>0 and price < 2000)
+);
+
+-- allowed as the price is in range of 0 to 2000
+insert into Orders(id, price) values(1, 1000);
+select * from Orders;
+
+insert into Orders(id, price) values(2, 1030);
+select * from Orders;
+
+-- not allowed as the price is in range but id is already present 
+insert into Orders(id, price) values(1, 1030);
+select * from Orders;
+
+-- not allowed as the price is not in range of 0 to 2000
+insert into Orders(id, price) values(3, 2001);
+select * from Orders;
 
 sp_help ConstraintEg
+sp_help 
+
 
 
