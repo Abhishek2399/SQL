@@ -32,14 +32,39 @@ create table ConstraintEg(
 --- Unique constraint 
 -- will not allow redundant entry for the table specified 
 create table UniqueName(
-	Name varchar(50) unique -- only unique values with one null value throught the column if not specified "not null"
+	Name varchar(50) unique -- only unique values with no null value throught the column if not specified "not null"
 );
 
 insert into UniqueName(Name) values('Abhi'), ('Alka'), ('Rahul');
 select * from UniqueName;
 
-insert into UniqueName(Name) values('Abhi');
+insert into UniqueName(Name) values('Abhi'); -- will not allow as 'abhi' is already present in the DB
 select * from UniqueName;
+
+-- if we want not null as well as unique 
+drop table UniqueName;
+create table UniqueName(
+	Name varchar(50) unique not null -- only unique values with one null value throught the column if not specified "not null"
+);
+insert into UniqueName(Name) values('Abhi'), ('Alka'), ('Rahul');
+select * from UniqueName;
+
+insert into UniqueName(Name) values('Abhi'); -- will not allow as 'abhi' is already present in the DB
+select * from UniqueName;
+
+insert into UniqueName(Name) values(null); -- will not allow as null values not allowed 
+select * from UniqueName;
+
+
+-- Primary Key constraint 
+-- {not null + unique} can be achieved with one single constraint -> primary key
+drop table UniqueName;
+create table UniqueName(
+	Name varchar(50) primary key-- only unique values with one null value throught the column if not specified "not null"
+);
+
+
+
 
 sp_help ConstraintEg
 
