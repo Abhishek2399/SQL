@@ -219,8 +219,17 @@ alter table marks drop constraint rCheck;
 alter table marks alter column rno int;
 
 
-sp_help ConstraintEg
-sp_help Orders
+create table prime(pkid int constraint primepk primary key);
+alter table prime noCheck constraint primepk;
+
+-- For DBA --
+alter index primepk on prime disable -- not for query developer 
+alter index primepk on prime disable -- not for query developer 
+-- < > --
+insert into prime values(1);
+
+sp_help ConstraintEg;
+sp_help Orders;
 
 
 
