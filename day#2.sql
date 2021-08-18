@@ -139,6 +139,7 @@ create table Employees(
 insert into Employees(e_id, e_name, d_id) values(1, 'Abhi', 200), (2, 'Rahul', 200);
 
 ---------< Table Level Constraints >---------
+drop table Product ;
 --- Functionality wise no difference ---
 create table Product(
 	pid int,
@@ -151,6 +152,19 @@ create table Product(
 insert into Product(pid, pname, pcost) values(2, 'speakers', 15000);
 insert into Product(pid, pname, pcost) values(1, 'display', 10000);
 insert into Product(pid, pname, pcost) values(3, 'motherboard', 20000);
+insert into Product(pid, pname, pcost) values(3, 'something', 20000);
+
+-- disable
+alter table Product noCheck constraint PK__Product__DD37D91AE544C243; -- not allowed as this is primary
+
+alter table Product noCheck constraint CK__Product__pname__4E88ABD4;
+
+-- enable
+alter table Product Check constraint PK__Product__DD37D91AE544C243; -- not allowed as this is primary 
+
+alter table Product Check constraint CK__Product__pname__4E88ABD4;
+
+
 select * from Product;
 
 drop table Orders;
@@ -168,7 +182,11 @@ create table Orders(
 insert into Orders values(500, 3);
 
 -- table level user-defined named constraint
+-- "constraint" keyword for using self defined name 
 create table emp(eid int, constraint pkeid primary key(eid));
+insert into emp(eid) values(1);
+insert into emp(eid) values(1);
+
 
 -- disabeling constraint 
 -- alter table Orders Nocheck constraint <name of the constraint>; we can find the name with invalid entry 
@@ -176,8 +194,29 @@ create table emp(eid int, constraint pkeid primary key(eid));
 -- alter table Orders check constraint <name of the constraint>; we can find the name with invalid entry 
 
 
+drop table marks;
+create table marks(rno int not null, constraint rCheck check(rno>0 and rno<76));
+truncate table marks;
 
+insert into marks(rno) values(1),(2),(74);
+select * from marks;
 
+-- disable 
+alter table marks nocheck constraint rCheck
+insert into marks(rno) values(79); -- as the constraint is disable we can insert the value larger than range 
+select * from marks;
+
+-- enable 
+alter table marks check constraint rCheck
+insert into marks(rno) values(80); -- as the constraint is enabled we can't insert the value larger than range 
+select * from marks;
+
+-- dropping a constraint 
+-- except for not null and default we can drop contraints
+alter table marks drop constraint rCheck;
+
+-- dropping removing 
+alter table marks alter column rno int;
 
 
 sp_help ConstraintEg
