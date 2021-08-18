@@ -72,6 +72,9 @@ select * from one;
 -- Syntax drop table <table_name>
 -- ? will drop command drop constraint -> it will remove 
 -- drop will not drop views or procedures associated with the table
+
+-- drop command can be used with view where we can drop the view we want
+-- Syntax : drop <view_name>
 drop table one;
 
 -- Truncate: will remove the content of table 
@@ -84,11 +87,33 @@ select * from Customers;
 create view v1 as 
 select * from Customers where cust_id > 200;
 
+
 select * from v1;
 
--- drop command can be used with view where we can drop the view we want
--- Syntax : drop <view_name>
+-- Select query is used to get the data from the specified table 
+-- Syntax: select <col_name>,..... from <table_name> we can get data from multiple columns 
+-- if we want to get all the data from a specific table : select * from <table_name>
+select cust_name, cust_id from Customers;
+-- if we want a specific name/alias for the column while displaying 
+select cust_name as cName, cust_id as cID from Customers;
+-- in order to use <space> in the alias we have to put the name in ''
+select cust_name as 'Customer Name', cust_id as 'Customer ID' from Customers;
 
+
+-- Operators
+-- "=" assignment operator 
+select * from Customers where cust_name = 'Abhishek';
+
+
+-- Logical Operator 
+-- and or not 
+select * from Customers where cust_name = '' or cust_name = '' -- both the condition should be true 
+select * from Customers where cust_name = '' or cust_name = '' -- any of the condition should be true 
+
+
+
+begin transaction 
+update Customers 
 
 
 --To get the structure of the table we have created 
