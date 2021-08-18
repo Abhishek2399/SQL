@@ -130,8 +130,22 @@ create table Depart(
 
 insert into Depart(d_id, d_name) values(100, 'SALES'), (200, 'ADVERTISEMENT'), (300, 'MARKETING');
 
+create table Employees(
+	e_id int primary key,
+	e_name varchar(20), 
+	d_id int foreign key references Depart
+);
 
+insert into Employees(e_id, e_name, d_id) values(1, 'Abhi', 200), (2, 'Rahul', 200);
 
+---------<Table Level Constraints>---------
+--- Functionality wise no difference ---
+create table Product(
+	pid int,
+	pname varchar(20),
+	pcost int, 
+	primary key(pid)
+);
 
 
 sp_help ConstraintEg
