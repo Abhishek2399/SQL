@@ -138,14 +138,46 @@ create table Employees(
 
 insert into Employees(e_id, e_name, d_id) values(1, 'Abhi', 200), (2, 'Rahul', 200);
 
----------<Table Level Constraints>---------
+---------< Table Level Constraints >---------
 --- Functionality wise no difference ---
 create table Product(
 	pid int,
 	pname varchar(20),
 	pcost int, 
-	primary key(pid)
+	primary key(pid),
+	check(pname like '%a%') -- anywhere in the pname 'a' should be there 
 );
+
+insert into Product(pid, pname, pcost) values(2, 'speakers', 15000);
+insert into Product(pid, pname, pcost) values(1, 'display', 10000);
+insert into Product(pid, pname, pcost) values(3, 'motherboard', 20000);
+select * from Product;
+
+drop table Orders;
+create table Orders(oid int, pid int);
+-- while placing order we need to check if the Product is avaliable --
+-- for this we need a pid to check availablity of the table
+-- hence we need to give references
+drop table Orders;
+create table Orders(
+	oid int primary key, 
+	pid int,
+	foreign key(pid) references Product 
+);
+
+insert into Orders values(500, 3);
+
+-- table level user-defined named constraint
+create table emp(eid int, constraint pkeid primary key(eid));
+
+-- disabeling constraint 
+-- alter table Orders Nocheck constraint <name of the constraint>; we can find the name with invalid entry 
+-- enabling constraint 
+-- alter table Orders check constraint <name of the constraint>; we can find the name with invalid entry 
+
+
+
+
 
 
 sp_help ConstraintEg
