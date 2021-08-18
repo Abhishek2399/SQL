@@ -157,7 +157,7 @@ insert into Product(pid, pname, pcost) values(3, 'something', 20000);
 -- disable
 alter table Product noCheck constraint PK__Product__DD37D91AE544C243; -- not allowed as this is primary
 
-alter table Product noCheck constraint CK__Product__pname__4E88ABD4;
+alter table Product noCheck constraint CK__Product__pname__4E88ABD4; -- <constarint name> from an invalid entry 
 
 -- enable
 alter table Product Check constraint PK__Product__DD37D91AE544C243; -- not allowed as this is primary 
