@@ -117,8 +117,25 @@ select * from Orders;
 insert into Orders(id, price) values(3, 2001);
 select * from Orders;
 
+-- if we want to create a link in between two tables
+-- we use Foreign Keys 
+
+-- requirements -> 1. Table with primary key
+--				-> 2. Another table consisting of same column name 
+
+create table Depart(
+	d_id int primary key,
+	d_name varchar(20) not null
+);
+
+insert into Depart(d_id, d_name) values(100, 'SALES'), (200, 'ADVERTISEMENT'), (300, 'MARKETING');
+
+
+
+
+
 sp_help ConstraintEg
-sp_help 
+sp_help Orders
 
 
 
