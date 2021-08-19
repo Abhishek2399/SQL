@@ -228,7 +228,231 @@ alter index primepk on prime disable -- not for query developer
 -- < > --
 
 insert into prime values(1);
+select * from prime
+delete from prime
+alter table prime add constraint primepk1 primary key(pkid)
+pname char(10)(static type) toy (3) 10 bytes (7bytes)
+char(4) non-unicode
+varchar(10) toy 3bytes
+nchar(4) unicode character toy 6
+nvarchar(4)
 
+int (4 bytes) -,+
+Tinyint(1byte) (0-255)
+smallint(2 bytes) (-32765 to 32765)
+Bigint(8 bytes) - +
+Decimal(p,s)
+salary decimal(5,2) (18) 123.24 234.34(incorrect) (1)
+
+create table sales(cost decimal(5,2))
+insert into sales values(1103.234567)
+
+drop table sales
+ 
+select * from sales
+salary smallmoney 4(bytes) -2134567890 2134567890
+salary money 8(bytes) -923,456,789,111 923,456,789,111,111
+
+
+dateofjoin date (yyyy/mm/dd)
+dateofjoin datetime(yyyy/mm/dd hh:mm:ss.ms)
+
+showtime time (hh:mm:ss.ms)
+
+photo binary(8000 bytes)
+photo varbinary(2gb)
+select lower('ABC')
+
+Single row
+multiple row
+use CUSTOMERDB 
+
+SELECT * FROM CUSTOMER
+ 
+SELECT UPPER(CUST_NAME) UPR,LOWER(CUST_NAME) LWR FROM CUSTOMER
+
+ SELECT LEFT('WILSON',3)
+ SELECT RIGHT('WILSON',3)
+
+ SELECT SUBSTRING('WILSON',4,3)
+ SELECT LEN('WILSON')
+
+
+  SELECT CONCAT('WIL','SON')
+  SELECT CONCAT(CUST_ID,CUST_NAME) JN FROM CUSTOMER
+
+  SELECT COUNT(CUST-NAME) FROM CUSTOMER
+
+  SELECT ASCII('Xbc')
+  Select char(87)
+  select charindex('i' , 'wilson')
+
+  select patindex('%so%' ,'wilson')
+  select patindex('%[i,o]%','wlson')
+  select replace('wilson','wil','gib')--only 3 parameters can be passed
+  select rtrim('wilson ')
+  select ltrim(' wilson')
+  select getdate()
+ select year (getdate())
+  select month(getdate())
+  select day(getdate())
+  select datepart(year,'2018/8/2')--to extract part use datepart
+  select datepart(hour,'2018/8/2 4:47')
+  select datepart(minute,'2018/8/2 4:47')
+  select datepart(quarter,'2018/8/2 4:47')
+  select dateadd(year,2,'2018/8/2')-- to add month,year,dateusing dateadd
+  select dateadd(day,2,'2018/8/2')
+  select dateadd(month,2,'2018/8/2')
+  select dateadd(year,-2,'2018/8/2')
+
+  select datediff(year,'1999/06/23',getdate())--to find difference b/w 2 dates
+  select datediff(month,'1999/06/23',getdate())
+  select datediff(day,'1999/06/23',getdate())
+
+  select abs(-25.456)
+  select round(155.456,-2)--round value is whole amount like 100 /200
+
+  select floor(1564.1) --giving natural num and if negative value in will round 
+  select * from customer
+  select max (cust_id) mx ,min(cust_id) mn,count(cust_id) count,sum(cust_id) total, from customer 
+  select cast(200.45 as int)
+  select cast(200.45 as float)
+  select cast(200.45 as varchar)
+  select convert(int,200.45)--first data type and value
+  declare @v int
+   set @v = 10
+   select case@v when 10
+   when 20 then value is 
+   else'other value'
+   end
+   select* from customer
+   select cust_id,case cust_id when 200 then 'cust-id 200' 
+                               when 300 then 'cust-id 300'
+							   else 'other cust-id' end as query
+							   from CUSTOMER
+create table newtable(rno int)
+insert into newtable values(900)
+select *from newtable
+ select isnull(null,'subt')
+ select isnull(rno,999) from  newtable
+ select sum(rno) from newtable 
+ select count(isnull(rno,1) )from newtable
+ select nullif('abc','abx')
+ select nullif(1,1)
+ select isdate('2021')
+ select isnumeric('10+30')select * from prime
+delete from prime
+alter table prime add constraint primepk1 primary key(pkid)
+pname char(10)(static type) toy (3) 10 bytes (7bytes)
+char(4) non-unicode
+varchar(10) toy 3bytes
+nchar(4) unicode character toy 6
+nvarchar(4)
+
+int (4 bytes) -,+
+Tinyint(1byte) (0-255)
+smallint(2 bytes) (-32765 to 32765)
+Bigint(8 bytes) - +
+Decimal(p,s)
+salary decimal(5,2) (18) 123.24 234.34(incorrect) (1)
+
+create table sales(cost decimal(5,2))
+insert into sales values(1103.234567)
+
+drop table sales
+ 
+select * from sales
+salary smallmoney 4(bytes) -2134567890 2134567890
+salary money 8(bytes) -923,456,789,111 923,456,789,111,111
+
+
+dateofjoin date (yyyy/mm/dd)
+dateofjoin datetime(yyyy/mm/dd hh:mm:ss.ms)
+
+showtime time (hh:mm:ss.ms)
+
+photo binary(8000 bytes)
+photo varbinary(2gb)
+select lower('ABC')
+
+Single row
+multiple row
+use CUSTOMERDB 
+
+SELECT * FROM CUSTOMER
+ 
+SELECT UPPER(CUST_NAME) UPR,LOWER(CUST_NAME) LWR FROM CUSTOMER
+
+ SELECT LEFT('WILSON',3)
+ SELECT RIGHT('WILSON',3)
+
+ SELECT SUBSTRING('WILSON',4,3)
+ SELECT LEN('WILSON')
+
+
+  SELECT CONCAT('WIL','SON')
+  SELECT CONCAT(CUST_ID,CUST_NAME) JN FROM CUSTOMER
+
+  SELECT COUNT(CUST-NAME) FROM CUSTOMER
+
+  SELECT ASCII('Xbc')
+  Select char(87)
+  select charindex('i' , 'wilson')
+
+  select patindex('%so%' ,'wilson')
+  select patindex('%[i,o]%','wlson')
+  select replace('wilson','wil','gib')--only 3 parameters can be passed
+  select rtrim('wilson ')
+  select ltrim(' wilson')
+  select getdate()
+ select year (getdate())
+  select month(getdate())
+  select day(getdate())
+  select datepart(year,'2018/8/2')--to extract part use datepart
+  select datepart(hour,'2018/8/2 4:47')
+  select datepart(minute,'2018/8/2 4:47')
+  select datepart(quarter,'2018/8/2 4:47')
+  select dateadd(year,2,'2018/8/2')-- to add month,year,dateusing dateadd
+  select dateadd(day,2,'2018/8/2')
+  select dateadd(month,2,'2018/8/2')
+  select dateadd(year,-2,'2018/8/2')
+
+  select datediff(year,'1999/06/23',getdate())--to find difference b/w 2 dates
+  select datediff(month,'1999/06/23',getdate())
+  select datediff(day,'1999/06/23',getdate())
+
+  select abs(-25.456)
+  select round(155.456,-2)--round value is whole amount like 100 /200
+
+  select floor(1564.1) --giving natural num and if negative value in will round 
+  select * from customer
+  select max (cust_id) mx ,min(cust_id) mn,count(cust_id) count,sum(cust_id) total, from customer 
+  select cast(200.45 as int)
+  select cast(200.45 as float)
+  select cast(200.45 as varchar)
+  select convert(int,200.45)--first data type and value
+  declare @v int
+   set @v = 10
+   select case@v when 10
+   when 20 then value is 
+   else'other value'
+   end
+   select* from customer
+   select cust_id,case cust_id when 200 then 'cust-id 200' 
+                               when 300 then 'cust-id 300'
+							   else 'other cust-id' end as query
+							   from CUSTOMER
+create table newtable(rno int)
+insert into newtable values(900)
+select *from newtable
+ select isnull(null,'subt')
+ select isnull(rno,999) from  newtable
+ select sum(rno) from newtable 
+ select count(isnull(rno,1) )from newtable
+ select nullif('abc','abx')
+ select nullif(1,1)
+ select isdate('2021')
+ select isnumeric('10+30')
 sp_help ConstraintEg;
 sp_help Orders;
 

@@ -43,3 +43,24 @@ select ename, loc_name
 from emps e join depts d on e.d_id = d.d_id
 join location l on l.loc_id = d.loc_id;
 
+-- if we want matched as well as un matched records 
+-- inner join only shows matched records
+-- hence we need to use outer join {left, right, full}
+
+-- Remember this Query for left and right 
+-- select * from emps, depts where emps.d_id = d.d_id
+
+--> Left 
+select ename, e.d_id, sal, d_name
+from emps e left outer join depts d on 
+e.d_id = d.d_id;
+
+--> Right
+select ename, e.d_id, sal, d_name
+from emps e right outer join depts d on 
+e.d_id = d.d_id;
+
+--> Full
+select ename, e.d_id, sal, d_name
+from emps e outer join depts d on 
+e.d_id = d.d_id;
