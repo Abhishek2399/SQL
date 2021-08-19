@@ -226,6 +226,7 @@ alter table prime noCheck constraint primepk;
 alter index primepk on prime disable -- not for query developer 
 alter index primepk on prime disable -- not for query developer 
 -- < > --
+
 insert into prime values(1);
 
 sp_help ConstraintEg;
