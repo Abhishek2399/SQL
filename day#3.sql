@@ -64,3 +64,31 @@ e.d_id = d.d_id;
 select ename, e.d_id, sal, d_name
 from emps e outer join depts d on 
 e.d_id = d.d_id;
+
+
+truncate table grade;
+create table grade(minsal int , maxsal int, grd char(1));
+insert into grade(minsal, maxsal, grd) values(500, 10000, 'D'), (10001, 20000, 'C'),(20001, 40000, 'B'), (40001, 100000, 'A'); ;
+
+
+delete from grade where minsal = 5000 and maxsal = 100000;
+
+select * from grade;
+select * from emps;
+
+-- how to join with no direct realtionship or common colm
+-- non equi joins 
+select ename, sal, grd 
+from emps e join grade g 
+on e.sal between g.minsal and g.maxsal;
+
+
+-- most of the times cross join incorrect or invalid query 
+-- sometimes we need cross joins 
+select ename, d_name from emps cross join depts; -- a join without where condition is always cross join
+
+-- Self Join 
+
+
+
+
