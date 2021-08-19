@@ -98,3 +98,21 @@ from emps s1, emps s2
 where s1.d_id = s2.d_id and s1.eid != s2.eid;
 
 select * from emps ;
+
+alter table emps add mgr int ;
+
+update emps set mgr=2 where eid = 1;
+update emps set mgr=2 where eid = 2;
+update emps set mgr=5 where eid = 3;
+update emps set mgr=2 where eid = 4;
+update emps set mgr=3 where eid = 5;
+update emps set mgr=1 where eid = 6;
+update emps set mgr=1 where eid = 7;
+
+select e.eid, e.ename en, m.ename mn 
+from emps e join emps m
+on e.mgr = m.eid order by eid;
+
+
+--> Sub Query 
+
