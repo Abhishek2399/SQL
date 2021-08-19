@@ -73,6 +73,7 @@ insert into grade(minsal, maxsal, grd) values(500, 10000, 'D'), (10001, 20000, '
 
 delete from grade where minsal = 5000 and maxsal = 100000;
 
+select * from depts;
 select * from grade;
 select * from emps;
 
@@ -88,7 +89,12 @@ on e.sal between g.minsal and g.maxsal;
 select ename, d_name from emps cross join depts; -- a join without where condition is always cross join
 
 -- Self Join 
+-- information in the same table 
+-- we want to get the emps working in the same department 
+-- hence we need to check if different employees have the same dept. id
 
+select s1.ename, s2.d_id, s2.eid 
+from emps s1, emps s2
+where s1.d_id = s2.d_id and s1.eid != s2.eid;
 
-
-
+select * from emps ;
