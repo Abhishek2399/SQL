@@ -220,3 +220,16 @@ insert into viewemp values('wilson'); --> allowed only if other columns dont hav
 select * from empdup;
 
 --> Even with simple views we can't perform all the DML operations properly 
+
+--> if we drop table associated with a view, the view stays and only the table is dropped
+--> we have to drop the view manually 
+
+create function sqr(@n int)
+returns int
+as begin 
+	return @n * @n
+end		
+
+declare @a int 
+exec @a = sqr 4;
+print(@a)
