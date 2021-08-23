@@ -282,7 +282,41 @@ insert into employ(ename) values('Ashutosh'); --> will increment based on the st
 
 select * from employ;
 
-
+drop table employ;
 --------------- <Sequence> ---------------
+--> this is a data base object, identity is property
+--> this is shareable with another tables. identity belongs to one table only 
+
+create sequence mySeq as int --> name of the sequence with data type 
+start with 10
+increment by 10
+--> we can give bounds too min value 
+--> here it is open
+
+
+--> seq not bounded to one specific table we can use it with any table 
+create table tab1(srno int);
+select * from tab1;
+insert into tab1 values(next value for myseq); --> next value from myseq
+--> every time we insert the next number in sequence is store 
+
+
+create table tab2(srno int);
+insert into tab2 values(next value for myseq); 
+select * from tab2; --> seq is continued from prev table thats the issue with sequence 
+
+--> we can alter the squence 
+
+alter sequence mySeq --> as the seq is already started we can't use the start value 
+increment by 10
+minvalue 10
+maxvalue 200 --> we can use upto 200
+
+insert into tab2 values(next value for myseq); 
+select * from tab2; --> seq is continued from prev table thats the issue with sequence 
+
+
+
+
 
 
