@@ -126,3 +126,30 @@ end
 
 update tab1 set s1 = 89 where Rno = 52;
 select * from audUP;
+
+
+
+
+create procedure procaud --> creating view 
+as 
+select * from audup --> for this query 
+
+
+-------------- <Views> --------------
+--> virtual table 
+--> query can be sotred in view 
+--> query will be called when we call view
+
+create view viewaud --> creating view 
+as 
+select * from audup --> for this query 
+
+--> both have same outout 
+exec procaud; 
+select * from viewaud; --> just virtual table data wont be stored physically anywhere 
+--> we can update insert and delete 
+insert into viewaud values(12, 67); --> this will change the original audUP table as well
+
+--> if a view is based on a single table it is simple view 
+--> if a view is based on more than one table it is complex  
+
