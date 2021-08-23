@@ -92,7 +92,7 @@ end
 
 delete from tab1 where Rno = 51;
 
-insert into tab1(Rno, s1) values(51, 24);
+insert into tab1(Rno, s1) values(51, 24), (52, 37), (66, 54);
 select * from tab1;
 
 
