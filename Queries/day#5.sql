@@ -224,6 +224,9 @@ select * from empdup;
 --> if we drop table associated with a view, the view stays and only the table is dropped
 --> we have to drop the view manually 
 
+
+------------- <Functions> -------------
+
 create function sqr(@n int)
 returns int
 as begin 
@@ -233,3 +236,5 @@ end
 declare @a int 
 exec @a = sqr 4;
 print(@a)
+
+select name from sys.triggers where type='TR';
