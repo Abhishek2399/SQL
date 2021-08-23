@@ -218,3 +218,5 @@ select ename from empdup
 insert into viewemp values('wilson'); --> allowed only if other columns dont have any constraint 
 
 select * from empdup;
+
+--> Even with simple views we can't perform all the DML operations properly 
