@@ -70,7 +70,7 @@ begin --> what to do instead of delete
 	select Rno as Deleted, s1 as Sub from deleted;
 end 
 
-alter trigger no_del on tab1 --> creating trigger on tab1
+alter trigger no_del on tab1 
 instead of delete --> for instead of delete
 as 
 begin --> what to do instead of delete 
