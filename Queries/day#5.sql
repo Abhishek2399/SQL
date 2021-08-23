@@ -189,11 +189,22 @@ select e.ename, d.d_name
 from emps e join depts d
 on e.d_id = d.d_id;
 
-
+--> creating a simple view for above join
 create view simpview --> complex view as 2 tables are involved 
 as
 select e.ename, d.d_name 
 from emps e join depts d
 on e.d_id = d.d_id;
 
+--> as 2 tables are involved we can't do any DML operations 
 select * from simpview;
+
+
+--> computed view 
+create view simpview1
+as 
+select sal=sal+1 from emps;
+
+
+select * from simpview1;
+
