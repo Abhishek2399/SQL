@@ -77,7 +77,6 @@ begin --> what to do instead of delete
 	print('Deleting record is not permissible') --> print this message
 	--> if we write delete here it will work 
 	-- delete from tab1 where Rno = some_Rno --> this will work, this won't call the trigger again 
-	delete from tab1 where Rno > 50; --> delete the records where number greater than 50
 	select Rno as Deleted, s1 as Sub from deleted;
 	--> only delete if id > 50
 	declare @toDel int
