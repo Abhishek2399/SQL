@@ -178,3 +178,22 @@ begin
 end
 -------------------------------------------------------------
 
+use DemoProj;
+
+select * from emps;
+select * from depts;
+
+
+-- getting dept name and emp name 
+select e.ename, d.d_name 
+from emps e join depts d
+on e.d_id = d.d_id;
+
+
+create view simpview --> complex view as 2 tables are involved 
+as
+select e.ename, d.d_name 
+from emps e join depts d
+on e.d_id = d.d_id;
+
+select * from simpview;
