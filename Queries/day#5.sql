@@ -118,7 +118,9 @@ begin
 	insert into audUP(oRno, info) 
 	values(
 		@oRno, 'old value: '+ 
-		cast(@osub as varchar(5)) + ' new value : '+ cast(@nsub as varchar(5)) + ' On Date : ' + cast(getdate() as varchar(100))
+		cast(@osub as varchar(5)) + 
+			' new value : '+ cast(@nsub as varchar(5)) + 
+			' On Date : ' + cast(getdate() as varchar(100))
 	);
 end 
 
