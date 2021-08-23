@@ -54,7 +54,9 @@ create trigger no_del on tab1 --> creating trigger on tab1
 instead of delete --> for instead of delete
 as 
 begin --> what to do instead of delete 
-	print('Deleting record is not permissible') --> print this message 
+	print('Deleting record is not permissible') --> print this message
+	--> if we write delete here it will work 
+	-- delete from tab1 where Rno = some_Rno --> this will work, this won't call the trigger again 
 end 
 
 delete from tab1 where Rno = 1;
