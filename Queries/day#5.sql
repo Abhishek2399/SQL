@@ -59,7 +59,7 @@ begin --> what to do instead of delete
 	-- delete from tab1 where Rno = some_Rno --> this will work, this won't call the trigger again 
 end 
 
-alter trigger no_del on tab1 --> creating trigger on tab1
+alter trigger no_del on tab1 
 instead of delete --> for instead of delete
 as 
 begin --> what to do instead of delete 
