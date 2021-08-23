@@ -269,4 +269,20 @@ select * from employ;
 
 
 --> we can't alter table to put identity 
---> 
+--> we have to create the table again if we want an identity
+
+--> manually giving indentity we have to give the name 
+set identity_insert employ on; --> for manual inserting the identity 
+insert into employ(eid, ename) values(150, 'Rahul');
+
+insert into employ(ename) values('Ashutosh'); --> this wont work as the identity_insert is on 
+--> we have to off it 
+set identity_insert employ off; --> for automatic inserting the data
+insert into employ(ename) values('Ashutosh'); --> will increment based on the step and value in prev row 
+
+select * from employ;
+
+
+--------------- <Sequence> ---------------
+
+
