@@ -208,3 +208,13 @@ select sal=sal+1 from emps;
 
 select * from simpview1;
 
+
+create table empdup(eid int, ename varchar(20));
+
+create view viewemp
+as 
+select ename from empdup
+
+insert into viewemp values('wilson'); --> allowed only if other columns dont have any constraint 
+
+select * from empdup;
