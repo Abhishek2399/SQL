@@ -238,3 +238,35 @@ exec @a = sqr 4;
 print(@a)
 
 select name from sys.triggers where type='TR';
+
+
+--------------- <Generating values automatically> ---------------
+
+create table employ(eid int primary key, ename varchar(20));
+
+insert into employ values(100, 'wilson'), (101,'anderson'); --> inserting id's manually 
+
+--> we can do this automatically
+--> for this we have to use identity with the coulmn we want 
+
+drop table employ;
+
+create table employ(eid int primary key identity, ename varchar(20)); --> def start value for eid is '1' and step is '1'
+
+insert into employ values(1,'Ajay'); -- this will throw error as we dont have to give the eid since it is incrementing by itself
+insert into employ(ename) values('Ajay');
+insert into employ(ename) values('Bhumesh');
+
+select * from employ;
+
+drop table employ;
+
+create table employ(eid int primary key identity(100, 10), ename varchar(20)); --> start value for eid is '100' and step is '10'
+
+insert into employ(ename) values('Ajay');
+insert into employ(ename) values('Bhumesh');
+select * from employ;
+
+
+--> we can't alter table to put identity 
+--> 
