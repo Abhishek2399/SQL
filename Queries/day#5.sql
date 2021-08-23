@@ -96,3 +96,27 @@ insert into tab1(Rno, s1) values(51, 24), (52, 37), (66, 54);
 select * from tab1;
 
 
+-- Tracking Update details in tab1 table 
+
+create table audUP(
+	oRno int,
+	info varchar(100),
+);
+
+
+create trigger onlySub on tab1
+for update 
+as
+begin 
+	declare @oRno int
+	declare @osub int --> old sub
+	declare @nsub int --> new sub 
+	
+	select @oRno=Rno, @osub = s1 from deleted ;
+	select @nsub = s1 from inserted ;
+
+	insert into audUP(oRno, info) values(@oRno, 'old value: '+ cast(@osub as varchar(5)) + ' new value : '+ cast(@nsub as varchar(5)) + ' On Date : ' + cast(getdate() as varchar(100)));
+end 
+
+update tab1 set s1 = 89 where Rno = 52;
+select * from audUP;
