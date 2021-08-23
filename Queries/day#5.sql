@@ -49,6 +49,7 @@ insert into tab1 values(2, 100);
 --> Meaning : instead of trigger do something else 
 -- delete from tab1 where Rno = 1; --> this is will delete data where id is 1 from table tab1
 --> if we dont want this to happen we can create an instead 
+--> to create trigger on views
 
 create trigger no_del on tab1 --> creating trigger on tab1
 instead of delete --> for instead of delete
@@ -149,7 +150,31 @@ exec procaud;
 select * from viewaud; --> just virtual table data wont be stored physically anywhere 
 --> we can update insert and delete 
 insert into viewaud values(12, 67); --> this will change the original audUP table as well
+-- delete from viewaud where condn; --> this will change the original audUP table as well
 
 --> if a view is based on a single table it is simple view 
 --> if a view is based on more than one table it is complex  
+--> we cannot create trigger on view 
+--> instead of trigger will work on view 
+
+-----------------<Not Allowed!!!!!>-------------------------
+--> after trigger 
+create trigger trigView on viewaud
+after insert
+as
+begin 
+	print('Inserted in View')
+end
+-------------------------------------------------------------
+
+
+-----------------<Allowed!!!!!>-------------------------
+--> instead of trigger 
+create trigger trigView on viewaud
+instead of delete
+as
+begin 
+	print('Inserted in View')
+end
+-------------------------------------------------------------
 
