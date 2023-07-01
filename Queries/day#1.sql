@@ -107,7 +107,7 @@ select * from Customers where cust_name = 'Abhishek';
 
 -- Logical Operator 
 -- and or not 
-select * from Customers where cust_name = '' or cust_name = '' -- both the condition should be true 
+select * from Customers where cust_name = '' and cust_name = '' -- both the condition should be true 
 select * from Customers where cust_name = '' or cust_name = '' -- any of the condition should be true 
 
 
